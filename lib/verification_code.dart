@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:signup/verifiedpage.dart';
+import 'package:flutter/services.dart';
 
 class VerificationCode extends StatelessWidget {
   @override
@@ -31,12 +32,30 @@ class VerificationCode extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffffd7eb),
+                TextField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                  ],
+                  maxLength:
+                      1, // Set the maximum length to 1 for a single-digit input
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  decoration: InputDecoration(
+                    counterText: '', // Hide the character counter
+                    contentPadding: EdgeInsets.all(10),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          BorderSide(color: Color(0xffffd7eb), width: 2),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          BorderSide(color: Color(0xffffd7eb), width: 2),
+                    ),
+                    filled: true,
+                    fillColor: Color(0xffffd7eb),
                   ),
                 ),
                 SizedBox(width: 5),

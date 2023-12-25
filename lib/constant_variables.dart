@@ -1,0 +1,1 @@
+const address = 'https://7596-2409-40d1-8-24e4-4d7e-f632-67b1-6c8.ngrok-free.app/api/v1/auth';
